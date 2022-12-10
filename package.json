@@ -4,13 +4,16 @@
   "description": "Assignment for Flexmoney Internship",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index",
+    "server": "node index"
   },
   "author": "SantamRC",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "express-validator": "^6.14.2",
     "mongoose": "^6.8.0",
+    "nodemon": "^2.0.20",
     "path": "^0.12.7"
   }
 }
