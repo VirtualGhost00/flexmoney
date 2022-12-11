@@ -5,7 +5,7 @@ const steps = ["Basic Information", "Select Batch", "Payment"];
 
 function StepperComponent({ activeStep }) {
   return (
-    <div>
+    <div style={{ marginTop: 50 }}>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>

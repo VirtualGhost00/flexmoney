@@ -19,7 +19,11 @@ function Submitted() {
 
   return (
     <div class="d-flex flex-column align-items-center gap-5">
-      <Lottie options={animationOptions} width={500} />
+      <Lottie
+        options={animationOptions}
+        width={500}
+        isClickToPauseDisabled={true}
+      />
       <Typography variant="h3">Registration Completed</Typography>
       <Button variant="contained" component={Link} to="/">
         Go to HomePage

@@ -19,7 +19,11 @@ function Home() {
   return (
     <PageWrapper>
       <div class="d-flex mx-3 align-items-center h-100">
-        <Lottie options={animationOptions} class="col-6" />
+        <Lottie
+          options={animationOptions}
+          isClickToPauseDisabled={true}
+          class="col-6"
+        />
         <div class="col-6 p-5">
           <div class="d-flex flex-column align-items-center gap-3 text-center">
             <Typography
