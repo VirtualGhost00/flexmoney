@@ -1,10 +1,10 @@
 import React from "react";
-import Form from "./Form";
+import Router from "./Router";
 
 function App() {
   return (
     <div>
-      <Form />
+      <Router />
     </div>
   );
 }
