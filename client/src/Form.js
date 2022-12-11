@@ -1,49 +1,49 @@
-import React from "react";
+import { useState } from "react";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 import PageWrapper from "./Animation/PageWrapper";
+import Stepper from "./Components/Stepper";
+import BasicInfo from "./Components/BasicInfo";
+import Batch from "./Components/Batch";
+import Payment from "./Components/Payment";
 
 function Form() {
+  let navigate = useNavigate();
+
+  const [activeStep, setStep] = useState(0);
+
+  const prevStep = () => {
+    setStep(activeStep - 1);
+  };
+
+  const nextStep = () => {
+    if (activeStep < 2) setStep(activeStep + 1);
+    else navigate("/submitted");
+  };
+
   return (
     <PageWrapper>
-      <form class="col-10 mx-auto mt-3">
-        <div class="mb-3">
-          <label for="name" class="form-label">
-            Name
-          </label>
-          <input type="text" class="form-control" id="name" />
+      <Stepper activeStep={activeStep} />
+      <div class="d-flex flex-column align-items-center">
+        {activeStep == 0 && <BasicInfo />}
+        {activeStep == 1 && <Batch />}
+        {activeStep == 2 && <Payment />}
+        <div class="d-flex gap-4 col-6 justify-content-center mt-5">
+          {activeStep > 0 && (
+            <Button
+              variant="contained"
+              sx={{ width: "50%" }}
+              onClick={prevStep}
+            >
+              Back
+            </Button>
+          )}
+          <Button variant="contained" sx={{ width: "50%" }} onClick={nextStep}>
+            {activeStep == 2 ? "Make Payment" : "Next"}
+          </Button>
         </div>
-
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="age" class="form-label">
-            Age
-          </label>
-          <input type="number" class="form-control" id="age" />
-        </div>
-
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1">
-            Check me out
-          </label>
-        </div>
-        <button type="submit" class="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      </div>
     </PageWrapper>
   );
 }

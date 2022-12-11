@@ -20,10 +20,28 @@ function Home() {
     <PageWrapper>
       <div class="d-flex mx-3 align-items-center h-100">
         <Lottie options={animationOptions} class="col-6" />
-        <div class="col-6">
-          <div class="d-flex flex-column align-items-center gap-3">
-            <Typography variant="h3">Join Our Club</Typography>
-            <Typography variant="h2">Yoga for you Healthy Life</Typography>
+        <div class="col-6 p-5">
+          <div class="d-flex flex-column align-items-center gap-3 text-center">
+            <Typography
+              variant="h3"
+              style={{ fontWeight: 400, color: "#065730" }}
+            >
+              Join Our Club
+            </Typography>
+            <Typography
+              variant="h2"
+              style={{ fontWeight: "bold", color: "#0fbd69" }}
+            >
+              Yoga for you Healthy Life
+            </Typography>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+              vitae consectetur augue. Vestibulum vitae eleifend urna. Fusce
+              pretium diam vel felis placerat ultricies. Mauris consequat elit
+              congue massa pulvinar, eu suscipit velit laoreet. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit. Fusce non pretium
+              elit.
+            </Typography>
             <Button
               variant="contained"
               component={Link}
