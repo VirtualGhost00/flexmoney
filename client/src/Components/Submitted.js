@@ -18,7 +18,7 @@ function Submitted() {
   const { innerWidth: width, innerHeight: height } = window;
 
   return (
-    <div class="d-flex flex-column align-items-center gap-5">
+    <div className="d-flex flex-column align-items-center gap-5">
       <Lottie
         options={animationOptions}
         width={500}

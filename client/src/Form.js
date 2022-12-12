@@ -8,10 +8,13 @@ import BasicInfo from "./Components/BasicInfo";
 import Batch from "./Components/Batch";
 import Payment from "./Components/Payment";
 
+import Submit from "./Services/Submit";
+
 function Form() {
   let navigate = useNavigate();
 
   const [activeStep, setStep] = useState(0);
+  const [data, setData] = useState({});
 
   const prevStep = () => {
     setStep(activeStep - 1);
@@ -19,17 +22,28 @@ function Form() {
 
   const nextStep = () => {
     if (activeStep < 2) setStep(activeStep + 1);
-    else navigate("/submitted");
+    else console.log(data);
+  };
+
+  const submit = () => {
+    Submit(data)
+      .then(() => {
+        console.log("Successfully Sent");
+        navigate("/submitted");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <PageWrapper>
       <Stepper activeStep={activeStep} />
-      <div class="d-flex flex-column align-items-center">
-        {activeStep == 0 && <BasicInfo />}
-        {activeStep == 1 && <Batch />}
+      <div className="d-flex flex-column align-items-center">
+        {activeStep == 0 && <BasicInfo setData={setData} />}
+        {activeStep == 1 && <Batch setData={setData} />}
         {activeStep == 2 && <Payment />}
-        <div class="d-flex gap-4 col-6 justify-content-center mt-5">
+        <div className="d-flex gap-4 col-6 justify-content-center mt-5">
           {activeStep > 0 && (
             <Button
               variant="contained"

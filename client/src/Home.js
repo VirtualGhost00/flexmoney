@@ -18,14 +18,14 @@ const animationOptions = {
 function Home() {
   return (
     <PageWrapper>
-      <div class="d-flex mx-3 align-items-center h-100">
+      <div className="d-flex mx-3 align-items-center h-100">
         <Lottie
           options={animationOptions}
           isClickToPauseDisabled={true}
-          class="col-6"
+          className="col-6"
         />
-        <div class="col-6 p-5">
-          <div class="d-flex flex-column align-items-center gap-3 text-center">
+        <div className="col-6 p-5">
+          <div className="d-flex flex-column align-items-center gap-3 text-center">
             <Typography
               variant="h3"
               style={{ fontWeight: 400, color: "#065730" }}

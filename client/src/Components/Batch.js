@@ -21,30 +21,55 @@ const Item = styled(Paper)(({ theme }) => ({
   },
 }));
 
-export default function Batch() {
+export default function Batch({ setData }) {
   const [selected, setSelected] = useState(0);
+
   return (
-    <Box class="col-10 my-5">
-      <Typography variant="h4" class="text-center">
+    <Box className="col-10 my-5">
+      <Typography variant="h4" className="text-center">
         Select the Batch of your Choice
       </Typography>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid xs={6} onClick={() => setSelected(1)}>
+        <Grid
+          xs={6}
+          onClick={() => {
+            setSelected(1);
+            setData((prev) => ({ ...prev, batch: "6-7AM" }));
+          }}
+        >
           <Item style={{ backgroundColor: selected == 1 ? "#19e337" : null }}>
             6-7AM
           </Item>
         </Grid>
-        <Grid xs={6} onClick={() => setSelected(2)}>
+        <Grid
+          xs={6}
+          onClick={() => {
+            setSelected(2);
+            setData((prev) => ({ ...prev, batch: "7-8AM" }));
+          }}
+        >
           <Item style={{ backgroundColor: selected == 2 ? "#19e337" : null }}>
             7-8AM
           </Item>
         </Grid>
-        <Grid xs={6} onClick={() => setSelected(3)}>
+        <Grid
+          xs={6}
+          onClick={() => {
+            setSelected(3);
+            setData((prev) => ({ ...prev, batch: "8-9AM" }));
+          }}
+        >
           <Item style={{ backgroundColor: selected == 3 ? "#19e337" : null }}>
             8-9AM
           </Item>
         </Grid>
-        <Grid xs={6} onClick={() => setSelected(4)}>
+        <Grid
+          xs={6}
+          onClick={() => {
+            setSelected(4);
+            setData((prev) => ({ ...prev, batch: "5-6PM" }));
+          }}
+        >
           <Item style={{ backgroundColor: selected == 4 ? "#19e337" : null }}>
             5-6PM
           </Item>
