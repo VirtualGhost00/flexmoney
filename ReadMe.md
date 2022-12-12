@@ -45,11 +45,11 @@ The Backend uses the following libraries
 
 The architecture of the Application is as follows:
 
-<img src="./Architecture.png" alt="Architecture">
+<img src="Architecture.png" alt="Architecture">
 
 ## ER Diagram
 
 The ER and Table for the Database are as follows:
 
-<img src="./ER_Diagram.png" alt="ER_Diagram">
-<img src="./Table.png" alt="Table">
+<img src="ER_Diagram.png" alt="ER_Diagram">
+<img src="Table.png" alt="Table">
