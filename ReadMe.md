@@ -53,3 +53,5 @@ The ER and Table for the Database are as follows:
 
 <img src="ER_Diagram.png" alt="ER_Diagram">
 <img src="Table.png" alt="Table">
+
+![ER Diagram](./ER_Diagram.png)
