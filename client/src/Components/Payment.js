@@ -1,37 +1,81 @@
-import React from "react";
+import { useState } from "react";
+import Lottie from "react-lottie";
+import { Button, Typography, Alert } from "@mui/material";
 
-function Payment() {
+import animationData from "../Animation/payment.json";
+
+const animationOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+};
+
+function Payment({ setPaying, userData }) {
+  const submit = (e) => {
+    e.preventDefault();
+    setPaying(2);
+  };
+
   return (
-    <form className="col-10 mx-auto mt-3">
-      <div className="mb-3">
-        <label for="name" className="form-label">
-          Name
-        </label>
-        <input type="text" className="form-control" id="name" />
+    <div className="d-flex h-100">
+      <Lottie options={animationOptions} isClickToPauseDisabled={true} />
+      <div className="col-6 d-flex h-100 flex-column align-items-center justify-content-center">
+        <Typography variant="h5">Name: {userData.name}</Typography>
+        <Typography variant="h5">Batch: {userData.batch}</Typography>
+        <Typography variant="h5">Amount: Rs. 500/-</Typography>
+        <form class="row g-3 needs-validation m-4" novalidate onSubmit={submit}>
+          <div class="mb-3">
+            <label for="validationCustom01" class="form-label">
+              Account Holder's Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationCustom01"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="validationCustom01" class="form-label">
+              Account Number
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="validationCustom01"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">
+              Validity
+            </label>
+            <input
+              type="month"
+              class="form-control"
+              id="validationCustom03"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">
+              CVV
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationCustom03"
+              required
+            />
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">
+              Submit form
+            </button>
+          </div>
+        </form>
       </div>
-
-      <div className="mb-3">
-        <label for="num" className="form-label">
-          Card Number
-        </label>
-        <input type="number" className="form-control" id="num" />
-      </div>
-
-      <div className=" d-flex gap-3">
-        <div className="mb-3 col-6">
-          <label for="exp" className="form-label">
-            Expiry Date
-          </label>
-          <input type="text" className="form-control" id="exp" />
-        </div>
-        <div className="mb-3 col-6">
-          <label for="cvv" className="form-label">
-            CVV
-          </label>
-          <input type="number" className="form-control" id="cvv" />
-        </div>
-      </div>
-    </form>
+    </div>
   );
 }
 

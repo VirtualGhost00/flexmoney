@@ -14,9 +14,7 @@ const animationOptions = {
   },
 };
 
-function Submitted() {
-  const { innerWidth: width, innerHeight: height } = window;
-
+function Submitted({ item }) {
   return (
     <div className="d-flex flex-column align-items-center gap-5">
       <Lottie
@@ -24,7 +22,7 @@ function Submitted() {
         width={500}
         isClickToPauseDisabled={true}
       />
-      <Typography variant="h3">Registration Completed</Typography>
+      <Typography variant="h3">{item} Completed</Typography>
       <Button variant="contained" component={Link} to="/">
         Go to HomePage
       </Button>

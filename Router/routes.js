@@ -37,7 +37,7 @@ router.post("/user", userValidationRules(), validate, async (req, res) => {
 router.post("/find", async (req, res) => {
   let id = req.body.id;
   User.find({ id: id }, (err, user) => {
-    if (user.length > 0) res.send({ status: true, body: user });
+    if (user.length > 0) res.send({ status: true, body: user[0] });
     else res.send({ status: false });
   });
 });

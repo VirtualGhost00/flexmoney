@@ -57,7 +57,7 @@ function Home() {
             <Button
               variant="contained"
               component={Link}
-              to="registration"
+              to="pay"
               sx={{ width: "50%" }}
             >
               Pay Fee
