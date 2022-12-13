@@ -3,6 +3,7 @@ import Lottie from "react-lottie";
 import { Button, Typography, Alert } from "@mui/material";
 
 import animationData from "../Animation/payment.json";
+import PaymentService from "../Services/Pay";
 
 const animationOptions = {
   loop: true,
@@ -13,7 +14,9 @@ const animationOptions = {
 function Payment({ setPaying, userData }) {
   const submit = (e) => {
     e.preventDefault();
-    setPaying(2);
+    PaymentService(userData.id).then((data) => {
+      if (data.status) setPaying(2);
+    });
   };
 
   return (

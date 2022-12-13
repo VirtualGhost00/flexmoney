@@ -1,12 +1,14 @@
 import axios from "axios";
 
-function Submit(dataItems) {
+function Pay(id) {
   return new Promise(function (resolve, reject) {
-    var data = JSON.stringify(dataItems);
+    var data = JSON.stringify({
+      id: id,
+    });
 
     var config = {
       method: "post",
-      url: "https://flexmoney-assignment.onrender.com/user",
+      url: "https://flexmoney-assignment.onrender.com/fee",
       headers: {
         "Content-Type": "application/json",
       },
@@ -21,4 +23,4 @@ function Submit(dataItems) {
   });
 }
 
-export default Submit;
+export default Pay;

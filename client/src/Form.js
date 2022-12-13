@@ -49,10 +49,16 @@ function Form() {
         if (data.errors) {
           setStep(0);
           setError("Wrong Input");
-        } else setStep(3);
+        } else {
+          console.log(data.body.id);
+          //setData((prev) => ({ ...prev, id: data.body.id }));
+          setStep(3);
+        }
       })
       .catch((err) => {
         console.log(err);
+        setStep(0);
+        setError("Something Went Wrong");
       }),
       console.log("Submitted");
   };
@@ -97,7 +103,7 @@ function Form() {
           <Typography variant="h5">Validating Details...</Typography>
         </div>
       )}
-      {activeStep == 3 && <Submitted item="Details" />}
+      {activeStep == 3 && <Submitted item="Details" id={data.id} />}
     </PageWrapper>
   );
 }

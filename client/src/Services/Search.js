@@ -8,7 +8,7 @@ function Submit(id) {
 
     var config = {
       method: "post",
-      url: "http://localhost:3001/find",
+      url: "https://flexmoney-assignment.onrender.com/find",
       headers: {
         "Content-Type": "application/json",
       },
