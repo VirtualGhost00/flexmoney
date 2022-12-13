@@ -6,7 +6,6 @@ import PageWrapper from "./Animation/PageWrapper";
 import Stepper from "./Components/Stepper";
 import BasicInfo from "./Components/BasicInfo";
 import Batch from "./Components/Batch";
-import Payment from "./Components/Payment";
 
 import Submit from "./Services/Submit";
 
@@ -21,8 +20,8 @@ function Form() {
   };
 
   const nextStep = () => {
-    if (activeStep < 2) setStep(activeStep + 1);
-    else console.log(data);
+    if (activeStep < 1) setStep(activeStep + 1);
+    else console.log(process.env.REACT_API_BASE_URL);
   };
 
   const submit = () => {
@@ -42,7 +41,6 @@ function Form() {
       <div className="d-flex flex-column align-items-center">
         {activeStep == 0 && <BasicInfo setData={setData} />}
         {activeStep == 1 && <Batch setData={setData} />}
-        {activeStep == 2 && <Payment />}
         <div className="d-flex gap-4 col-6 justify-content-center mt-5">
           {activeStep > 0 && (
             <Button
@@ -54,7 +52,7 @@ function Form() {
             </Button>
           )}
           <Button variant="contained" sx={{ width: "50%" }} onClick={nextStep}>
-            {activeStep == 2 ? "Make Payment" : "Next"}
+            {activeStep == 1 ? "Submit" : "Next"}
           </Button>
         </div>
       </div>

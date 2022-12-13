@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Stepper, Step, StepLabel } from "@mui/material";
 
-const steps = ["Basic Information", "Select Batch", "Payment"];
+const steps = ["Basic Information", "Select Batch"];
 
 function StepperComponent({ activeStep }) {
   return (

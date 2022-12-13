@@ -2,6 +2,8 @@
 
 This is the Assignment for Flexmoney Internship.
 
+### Hosted Link - https://flexmoney-assignment.onrender.com/
+
 ## Usage
 
 First Setup Client
@@ -45,11 +47,12 @@ The Backend uses the following libraries
 
 The architecture of the Application is as follows:
 
-<img src="Architecture.png" alt="Architecture">
+![Architecture](https://user-images.githubusercontent.com/109162994/207275058-93504691-26fd-4409-8001-b627b22cfc99.png)
 
 ## ER Diagram
 
 The ER and Table for the Database are as follows:
 
-<img src="ER_Diagram.png" alt="ER_Diagram">
-<img src="Table.png" alt="Table">
+![ER_Diagram](https://user-images.githubusercontent.com/109162994/207275299-86006c73-4349-484f-9ceb-173dba7401c8.png)
+
+![Table](https://user-images.githubusercontent.com/109162994/207275401-83e1e561-6abc-4e33-9e69-63e167178ffc.png)

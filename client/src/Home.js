@@ -54,6 +54,14 @@ function Home() {
             >
               Register
             </Button>
+            <Button
+              variant="contained"
+              component={Link}
+              to="registration"
+              sx={{ width: "50%" }}
+            >
+              Pay Fee
+            </Button>
           </div>
         </div>
       </div>

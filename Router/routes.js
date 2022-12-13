@@ -9,6 +9,8 @@ router.post("/user", userValidationRules(), validate, async (req, res) => {
     name: req.body.name,
     email: req.body.email,
     age: req.body.age,
+    gender: req.body.gender,
+    batch: req.body.batch,
   });
   await newUser.save();
 
