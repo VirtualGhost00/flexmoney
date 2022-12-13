@@ -51,7 +51,7 @@ The architecture of the Application is as follows:
 
 ## ER Diagram
 
-The ER and Table for the Database are as follows:
+The ER Diagram and Table for the Database are as follows:
 
 ![ER_Diagram](https://user-images.githubusercontent.com/109162994/207275299-86006c73-4349-484f-9ceb-173dba7401c8.png)
 

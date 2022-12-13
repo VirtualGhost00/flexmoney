@@ -1,11 +1,20 @@
-import React from "react";
 import axios from "axios";
 
-function Submit(data) {
+function Submit(dataItems) {
   return new Promise(function (resolve, reject) {
-    axios
-      .post(`${process.env.REACT_API_BASE_URL}/user`, data)
-      .then(() => resolve())
+    var data = JSON.stringify(dataItems);
+
+    var config = {
+      method: "post",
+      url: "http://localhost:3001/user",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then((response) => resolve(response.data))
       .catch(function (error) {
         reject(error);
       });

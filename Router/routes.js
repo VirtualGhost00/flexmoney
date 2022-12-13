@@ -31,7 +31,9 @@ router.post("/user", userValidationRules(), validate, async (req, res) => {
   });
   await newUser.save();
 
-  res.send({ message: "Successfully Saved!!", body: newUser });
+  setTimeout(() => {
+    res.send({ message: "Successfully Saved!!", body: newUser });
+  }, 1500);
 });
 
 router.post("/find", async (req, res) => {

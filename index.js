@@ -1,3 +1,4 @@
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
@@ -15,7 +16,10 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 app.use("/", routes);
 
 mongoose
-  .connect("mongodb://localhost:27017/flexmoney", { useNewUrlParser: true })
+  .connect(
+    `mongodb+srv://${process.env.LOGIN_ID}:${process.env.PASSWORD}@cluster0.gyexhla.mongodb.net/?retryWrites=true&w=majority`,
+    { useNewUrlParser: true }
+  )
   .then(() => {
     console.log("Connected to DB!!");
   });

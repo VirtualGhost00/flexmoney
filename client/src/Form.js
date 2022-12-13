@@ -1,6 +1,19 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Button, Alert, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Lottie from "react-lottie";
+
+import animationData from "./Animation/verifying.json";
+import Submitted from "./Components/Submitted";
+
+const animationOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 import PageWrapper from "./Animation/PageWrapper";
 import Stepper from "./Components/Stepper";
@@ -14,48 +27,77 @@ function Form() {
 
   const [activeStep, setStep] = useState(0);
   const [data, setData] = useState({});
+  const [error, setError] = useState(null);
 
   const prevStep = () => {
     setStep(activeStep - 1);
   };
 
   const nextStep = () => {
-    if (activeStep < 1) setStep(activeStep + 1);
-    else console.log(process.env.REACT_API_BASE_URL);
+    if (activeStep < 1) {
+      if (data.name && data.email && data.gender && data.age) {
+        setStep(activeStep + 1);
+        setError(null);
+      } else setError("Enter all Fields");
+    } else submit();
   };
 
   const submit = () => {
+    setStep(2);
     Submit(data)
-      .then(() => {
-        console.log("Successfully Sent");
-        navigate("/submitted");
+      .then((data) => {
+        if (data.errors) {
+          setStep(0);
+          setError("Wrong Input");
+        } else setStep(3);
       })
       .catch((err) => {
         console.log(err);
-      });
+      }),
+      console.log("Submitted");
   };
 
   return (
     <PageWrapper>
-      <Stepper activeStep={activeStep} />
+      {activeStep < 2 && <Stepper activeStep={activeStep} />}
       <div className="d-flex flex-column align-items-center">
+        {error && <Alert severity="error">{error}</Alert>}
         {activeStep == 0 && <BasicInfo setData={setData} />}
         {activeStep == 1 && <Batch setData={setData} />}
-        <div className="d-flex gap-4 col-6 justify-content-center mt-5">
-          {activeStep > 0 && (
+        {activeStep < 2 && (
+          <div className="d-flex gap-4 col-6 justify-content-center mt-5">
+            {activeStep > 0 && (
+              <Button
+                variant="contained"
+                sx={{ width: "50%" }}
+                onClick={prevStep}
+              >
+                Back
+              </Button>
+            )}
+
             <Button
               variant="contained"
               sx={{ width: "50%" }}
-              onClick={prevStep}
+              onClick={nextStep}
             >
-              Back
+              {activeStep == 1 ? "Submit" : "Next"}
             </Button>
-          )}
-          <Button variant="contained" sx={{ width: "50%" }} onClick={nextStep}>
-            {activeStep == 1 ? "Submit" : "Next"}
-          </Button>
-        </div>
+          </div>
+        )}
       </div>
+      {activeStep == 2 && (
+        <div className="d-flex flex-column align-items-center">
+          <Lottie
+            options={animationOptions}
+            isClickToPauseDisabled={true}
+            height={500}
+            width={500}
+          />
+          <Typography variant="h5">Validating Details...</Typography>
+        </div>
+      )}
+      {activeStep == 3 && <Submitted item="Details" />}
     </PageWrapper>
   );
 }
